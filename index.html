@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books for Hope</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --paper:#fcfaf6;
+    --paper-dark:#f3eee6;
+    --accent:#ff8f70;
+    --accent2:#5ec8c2;
+    --accent3:#ffd166;
+    --text:#333;
+    --card-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Platypi', serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,143,112,0.08), transparent 300px),
+        radial-gradient(circle at 80% 30%, rgba(94,200,194,0.08), transparent 300px),
+        radial-gradient(circle at 50% 90%, rgba(255,209,102,0.08), transparent 300px),
+        var(--paper);
+    line-height:1.6;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:50px 20px 40px;
+}
+
+.logo{
+    width:120px;
+    height:auto;
+    margin-bottom:20px;
+}
+
+h1{
+    font-family:'BioRhyme', serif;
+    font-size:3.5rem;
+    color:#222;
+}
+
+.tagline{
+    max-width:700px;
+    margin:10px auto 0;
+    font-size:1.05rem;
+    color:#555;
+}
+
+/* CATEGORY SECTIONS */
+
+.category-section{
+    margin:60px 0;
+}
+
+.category-title{
+    display:inline-block;
+    font-family:'BioRhyme', serif;
+    font-size:2.4rem;
+    padding:8px 18px;
+    margin-bottom:30px;
+    background:white;
+    border-radius:14px;
+    box-shadow:var(--card-shadow);
+    transform:rotate(-1deg);
+}
+
+/* BOOK GRID */
+
+.book-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:28px;
+}
+
+.book-card{
+    background:white;
+    border-radius:20px;
+    padding:14px;
+    box-shadow:var(--card-shadow);
+    transition:0.3s ease;
+    position:relative;
+}
+
+.book-card:hover{
+    transform:translateY(-6px) rotate(1deg);
+}
+
+.book-card::before{
+    content:"";
+    position:absolute;
+    width:50px;
+    height:16px;
+    background:rgba(255,209,102,0.7);
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%) rotate(-4deg);
+    border-radius:3px;
+}
+
+.book-image{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:14px;
+    background:#eee;
+}
+
+.book-info{
+    padding-top:14px;
+}
+
+.book-title{
+    font-weight:600;
+    font-size:1rem;
+    margin-bottom:4px;
+}
+
+.book-author{
+    color:#666;
+    font-size:0.92rem;
+}
+
+.book-price{
+    margin-top:10px;
+    display:inline-block;
+    background:var(--accent2);
+    color:white;
+    padding:6px 12px;
+    border-radius:999px;
+    font-weight:600;
+}
+
+/* ABOUT */
+
+.about{
+    margin-top:90px;
+    padding:70px 0;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(5px);
+}
+
+.about-content{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.profile-image{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:8px solid white;
+    box-shadow:var(--card-shadow);
+}
+
+.about-text{
+    flex:1;
+    min-width:280px;
+}
+
+.about h2{
+    font-family:'BioRhyme, serif;
+    font-size:2.8rem;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding: 5px 30px 20px;
+    color:#777;
+}
+
+@media(max-width:700px){
+    h1{
+        font-size:2.7rem;
+    }
+
+    .about-content{
+        justify-content:center;
+        text-align:center;
+    }
+}
+
+.foundation-logo-section{
+    text-align:center;
+    padding:40px 20px 60px;
+}
+
+.foundation-logo-section .logo-frame{
+    display:inline-block;
+}
+
+.foundation-text{
+    margin-top:25px;
+    font-family:'BioRhyme', serif;
+    font-size:1.5rem;
+    color:#333;
+}
+
+.how-card{
+    max-width:900px;
+    margin:50px auto;
+    background:white;
+    border-radius:24px;
+    padding:40px;
+    box-shadow:var(--card-shadow);
+    position:relative;
+}
+
+.how-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:8px;
+    background:linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2),
+        var(--accent3)
+    );
+    border-radius:24px 24px 0 0;
+}
+
+.how-card h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-family:'BioRhyme', serif;
+    font-size:2rem;
+}
+
+.step{
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+    align-items:flex-start;
+}
+
+.step-number{
+    min-width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--accent);
+    color:white;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.step p{
+    margin:0;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="container">
+
+    <h1> Pages for Purpose </h1>
+
+<p class="tagline">
+        Give great books a second life while supporting an important cause.
+    </p>
+
+</header>
+
+</header>
+
+<section class="how-card container">
+
+    <h2>How It Works</h2>
+
+    <div class="step">
+        <div class="step-number">1</div>
+        <p>Browse the books available below.</p>
+    </div>
+
+    <div class="step">
+        <div class="step-number">2</div>
+        <p>
+            Message +968 97048500 on WhatsApp with the books you're interested in.
+            We'll send additional details (first page and back-cover blurb).
+        </p>
+    </div>
+
+    <div class="step">
+        <div class="step-number">3</div>
+        <p>
+            Confirm your choices and collect the books at a convenient time.
+        </p>
+    </div>
+
+    <div class="step">
+        <div class="step-number">4</div>
+        <p>Enjoy your new books!</p>
+    </div>
+
+</section>
+
+<div class="container">
+
+<div class="container">
+
+    <!-- FICTION -->
+    <section class="category-section">
+    <h2 class="category-title">Fiction</h2>
+
+    <div class="book-grid">
+
+        <div class="book-card">
+            <img src="images/book1.jpg" class="book-image" alt="Angelica the Angel Fairy">
+            <div class="book-info">
+                <div class="book-title">Angelica the Angel Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+	
+	<div class="book-card">
+            <img src="images/book2.jpg" class="book-image" alt="Flora the Fancy Dress Fairy">
+            <div class="book-info">
+                <div class="book-title">Flora the Fancy Dress Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book3.jpg" class="book-image" alt="Gabriella the Snow Kingdom Fairy">
+            <div class="book-info">
+                <div class="book-title">Gabriella the Snow Kingdom Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book4.jpg" class="book-image" alt="Keira the Film Star Fairy">
+            <div class="book-info">
+                <div class="book-title">Keira the Film Star Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book5.jpg" class="book-image" alt="Kylie the Carnival Fairy">
+            <div class="book-info">
+                <div class="book-title">Kylie the Carnival Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book6.jpg" class="book-image" alt="Nicki the Holiday Camp Fairy">
+            <div class="book-info">
+                <div class="book-title">Nicki the Holiday Camp Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book7.jpg" class="book-image" alt="Stella the Star Fairy">
+            <div class="book-info">
+                <div class="book-title">Stella the Star Fairy</div>
+                <div class="book-author">Daisy Meadows</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book8.jpg" class="book-image" alt="Brainboy and the Deathmaster">
+            <div class="book-info">
+                <div class="book-title">Brainboy and the Deathmaster</div>
+                <div class="book-author">Tor Seidler</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book9.jpg" class="book-image" alt="The Hunger Games">
+            <div class="book-info">
+                <div class="book-title">The Hunger Games</div>
+                <div class="book-author">Suzanne Collins</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+	<div class="book-card">
+            <img src="images/book10.jpg" class="book-image" alt="Catching Fire">
+            <div class="book-info">
+                <div class="book-title">Catching Fire</div>
+                <div class="book-author">Suzanne Collins</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+	
+	<div class="book-card">
+            <img src="images/book11.jpg" class="book-image" alt="Mockingjay">
+            <div class="book-info">
+                <div class="book-title">Mockingjay</div>
+                <div class="book-author">Suzanne Collins</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+
+        <div class="book-card">
+            <img src="images/book12.jpg" class="book-image" alt="Calypso">
+            <div class="book-info">
+                <div class="book-title">Calypso</div>
+                <div class="book-author">David Sedaris</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book13.jpg" class="book-image" alt="Dolphin Song">
+            <div class="book-info">
+                <div class="book-title">Dolphin Song</div>
+                <div class="book-author">Lauren St. John</div>
+                <div class="book-price">OMR 2</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book14.jpg" class="book-image" alt="E.T.: The Extra-Terrestrial">
+            <div class="book-info">
+                <div class="book-title">E.T.: The Extra-Terrestrial</div>
+                <div class="book-author">William Kotzwinkle</div>
+                <div class="book-price">OMR 1.5</div>
+            </div>
+        </div>
+        
+
+        <div class="book-card">
+            <img src="images/book15.jpg" class="book-image" alt="Enola Holmes and the Elegant Escapade">
+            <div class="book-info">
+                <div class="book-title">Enola Holmes and the Elegant Escapade</div>
+                <div class="book-author">Nancy Springer</div>
+                <div class="book-price">OMR 2.5</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book16.jpg" class="book-image" alt="From Now On">
+            <div class="book-info">
+                <div class="book-title">From Now On</div>
+                <div class="book-author">Jane Francis</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book17.jpg" class="book-image" alt="Ghost Abbey">
+            <div class="book-info">
+                <div class="book-title">Ghost Abbey</div>
+                <div class="book-author">Robert Westall</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book18.jpg" class="book-image" alt="How to Speak Dolphin">
+            <div class="book-info">
+                <div class="book-title">How to Speak Dolphin</div>
+                <div class="book-author">Ginny Rorby</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book19.jpg" class="book-image" alt="Jane Eyre">
+            <div class="book-info">
+                <div class="book-title">Jane Eyre</div>
+                <div class="book-author">Charlotte Bronte</div>
+                <div class="book-price">OMR 0.500</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book20.jpg" class="book-image" alt="Lion Country">
+            <div class="book-info">
+                <div class="book-title">Lion Country</div>
+                <div class="book-author">Colin Dann</div>
+                <div class="book-price">OMR 0.700</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book21.jpg" class="book-image" class="book-image" alt="Night Flying">
+            <div class="book-info">
+                <div class="book-title">Night Flying</div>
+                <div class="book-author">Rita Murphy</div>
+                <div class="book-price">OMR 0.900</div>
+            </div>
+        </div>
+
+
+        <div class="book-card">
+            <img src="images/book22.jpg" class="book-image" alt="Out of My Mind">
+            <div class="book-info">
+                <div class="book-title">Out of My Mind</div>
+                <div class="book-author">Sharon M. Draper</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+
+        <div class="book-card">
+            <img src="images/book23.jpg" class="book-image" alt="Room to Dream">
+            <div class="book-info">
+                <div class="book-title">Room to Dream</div>
+                <div class="book-author">Kelly Yang</div>
+                <div class="book-price">OMR 4</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book24.jpg" class="book-image" alt="Saving Fish From Drowning">
+            <div class="book-info">
+                <div class="book-title">Saving Fish From Drowning</div>
+                <div class="book-author">Kelly Yang</div>
+                <div class="book-price">OMR 2</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book25.jpg" class="book-image" alt="The 3 Investigators Mysteries">
+            <div class="book-info">
+                <div class="book-title">The 3 Investigators Mysteries</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <<img src="images/book26.jpg" class="book-image" alt="The Book of Two Ways">
+            <div class="book-info">
+                <div class="book-title">The Book of Two Ways</div>
+                <div class="book-author">Jodi Picoult</div>
+                <div class="book-price">OMR 4</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book27.jpg" class="book-image" alt="The Bookshop">
+            <div class="book-info">
+                <div class="book-title">The Bookshop</div>
+                <div class="book-author">Penelope Fitzgerald</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book28.jpg" class="book-image" alt="The Bromeliad Trilogy">
+            <div class="book-info">
+                <div class="book-title">The Bromeliad Trilogy</div>
+                <div class="book-author">Terry Pratchett</div>
+                <div class="book-price">OMR 2.5</div>
+            </div>
+        </div>
+
+
+        <div class="book-card">
+            <img src="images/book29.jpg" class="book-image" alt="The Famous Five: Five Have a Wonderful Time">
+            <div class="book-info">
+                <div class="book-title">The Famous Five: Five Have a Wonderful Time</div>
+                <div class="book-author">Enid Blyton</div>
+                <div class="book-price">OMR 0.900</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book30.jpg" class="book-image" alt="The Kon-Tiki Expedition">
+            <div class="book-info">
+                <div class="book-title">The Kon-Tiki Expedition</div>
+                <div class="book-author">Thor Heyerdahl</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book31.jpg" class="book-image" alt="The Magician: The Secrets of the Immortal Nicholas Flamel">
+            <div class="book-info">
+                <div class="book-title">The Magician: The Secrets of the Immortal Nicholas Flamel</div>
+                <div class="book-author">Michael Scott</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book32.jpg" class="book-image" alt="The White Witch">
+            <div class="book-info">
+                <div class="book-title">The White Witch</div>
+                <div class="book-author">Janet Graber</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book33.jpg" class="book-image" alt="The Winter-Sleeper">
+            <div class="book-info">
+                <div class="book-title">The Winter-Sleeper</div>
+                <div class="book-author">Alan C. Jenkins</div>
+                <div class="book-price">OMR 0.800</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book34.jpg" class="book-image" alt="These Ghosts are Family">
+            <div class="book-info">
+                <div class="book-title">These Ghosts are Family</div>
+                <div class="book-author">Maisy Card</div>
+                <div class="book-price">OMR 1</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book35.jpg" class="book-image" alt="Three Men in a Boat">
+            <div class="book-info">
+                <div class="book-title">Three Men in a Boat</div>
+                <div class="book-author">Jerome K. Jerome</div>
+                <div class="book-price">OMR 0.900</div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <img src="images/book36.jpg" class="book-image" alt="What the Body Remembers">
+            <div class="book-info">
+                <div class="book-title">What the Body Remembers</div>
+                <div class="book-author">Shauna Singh Baldwin</div>
+                <div class="book-price">OMR 1.5</div>
+            </div>
+        </div>
+
+
+        <div class="book-card">
+            <img src="images/book37.jpg" class="book-image" alt="When Hitler Stole Pink Rabbit">
+            <div class="book-info">
+                <div class="book-title">When Hitler Stole Pink Rabbit</div>
+                <div class="book-author">Judith Kerr</div>
+                <div class="book-price">OMR 0.900</div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- NON-FICTION -->
+    <section class="category-section">
+        <h2 class="category-title">Non-Fiction</h2>
+
+        <div class="book-grid">
+
+            <div class="book-card">
+                <img src="images/book38.jpg" class="book-image" alt="Born on a Blue Day">
+                <div class="book-info">
+                    <div class="book-title">Born on a Blue Day</div>
+                    <div class="book-author">Daniel Tammet</div>
+                    <div class="book-price">OMR 1</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="images/book39.jpg" class="book-image" alt="Getting Away with Murder">
+                <div class="book-info">
+                    <div class="book-title">Getting Away with Murder</div>
+                    <div class="book-author">Mark Price</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book40.jpg" class="book-image"class="book-image" alt="Hit Refresh">
+                <div class="book-info">
+                    <div class="book-title">Hit Refresh</div>
+                    <div class="book-author">Satya Nadella</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+
+        </div>
+
+	
+	<div class="book-card">
+                <img src="images/book41.jpg" class="book-image" class="book-image" alt="Secrets of the Sky">
+                <div class="book-info">
+                    <div class="book-title">Secrets of the Sky</div>
+                    <div class="book-author">Ian Ridpath</div>
+                    <div class="book-price">OMR 1</div>
+                </div>
+
+        </div>
+
+	<div class="book-card">
+                <img src="images/book42.jpg" class="book-image" class="book-image" alt="Shamed">
+                <div class="book-info">
+                    <div class="book-title">Shamed</div>
+                    <div class="book-author">Sarbjit Kaur Athwal</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+
+        </div>
+
+	<div class="book-card">
+                <img src="images/book43.jpg" class="book-image" class="book-image" alt="Ten Boys Who Didn't Give In">
+                <div class="book-info">
+                    <div class="book-title">Ten Boys Who Didn't Give In</div>
+                    <div class="book-author">Irene Howat</div>
+                    <div class="book-price">OMR 0.500</div>
+                </div>
+
+        </div>
+
+	<div class="book-card">
+                <img src="images/book44.jpg" class="book-image" alt="The Lexus and the Olive Tree">
+                <div class="book-info">
+                    <div class="book-title">The Lexus and the Olive Tree</div>
+                    <div class="book-author">Thomas L. Friedman</div>
+                    <div class="book-price">OMR 0.800</div>
+                </div>
+
+        </div>
+
+	<div class="book-card">
+                <img src="images/book45.jpg" class="book-image" alt="The World's Greatest Idea">
+                <div class="book-info">
+                    <div class="book-title">The World's Greatest Idea</div>
+                    <div class="book-author">John Farndon</div>
+                    <div class="book-price">OMR 1</div>
+                </div>
+
+        </div>
+
+	<div class="book-card">
+                <img src="images/book46.jpg" class="book-image" alt="Worlds of Nature ">
+                <div class="book-info">
+                    <div class="book-title">Worlds of Nature</div>
+                    <div class="book-price">OMR 0.500</div>
+                </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="category-section">
+        <h2 class="category-title">Education</h2>
+
+        <div class="book-grid">
+
+            <div class="book-card">
+                <img src="images/book47.jpg" class="book-image" alt="Awaken the Math Genius in Your Child">
+                <div class="book-info">
+                    <div class="book-title">Awaken the Math Genius in Your Child</div>
+                    <div class="book-author">Shakuntala Devi</div>
+                    <div class="book-price">OMR 0.900</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="images/book48.jpg" class="book-image" alt="CBSE CCE Sample Question Papers">
+                <div class="book-info">
+                    <div class="book-title">CBSE CCE Sample Question Papers</div>
+                    <div class="book-price">OMR 1</div>
+                </div>
+            </div>
+
+
+	<div class="book-card">
+                <img src="images/book50.jpg" class="book-image" alt="Edexcel A2 Physics">
+                <div class="book-info">
+                    <div class="book-title">Edexcel A2 Physics</div>
+		    <div class="book-author">Miles Hudson</div>
+                    <div class="book-price">OMR 1</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book51.jpg" class="book-image" alt="Faster Than Light: Superluminal Loopholes in Physics">
+                <div class="book-info">
+                    <div class="book-title">Faster Than Light: Superluminal Loopholes in Physics</div>
+		    <div class="book-author">Nick Herbert</div>
+                    <div class="book-price">OMR 0.800</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book52.jpg" class="book-image" alt="General Mathematics Revision and Practice">
+                <div class="book-info">
+                    <div class="book-title">General Mathematics Revision and Practice</div>
+		    <div class="book-author">D. Rayner</div>
+                    <div class="book-price">OMR 2</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book53.jpg" class="book-image" alt="Handbook of Mathematics">
+                <div class="book-info">
+                    <div class="book-title">Handbook of Mathematics</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book54.jpg" class="book-image" alt="Idioms and their Origins">
+                <div class="book-info">
+                    <div class="book-title">Idioms and their Origins</div>
+		    <div class="book-author">Linda and Roger Flavell</div>
+                    <div class="book-price">OMR 0.900</div>
+                </div>
+            </div>
+
+
+	<div class="book-card">
+                <img src="images/book55.jpg" class="book-image" alt="Level 3 Chemistry AME Workbook">
+                <div class="book-info">
+                    <div class="book-title">Level 3 Chemistry AME Workbook</div>
+		    <div class="book-author">James Andersen</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book56.jpg" class="book-image" alt="Level 3 Physics AME Workbook">
+                <div class="book-info">
+                    <div class="book-title">Level 3 Physics AME Workbook</div>
+		    <div class="book-author">Pauline Bendall</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book57.jpg" class="book-image" alt="Level 3 Physics AME Workbook">
+                <div class="book-info">
+                    <div class="book-title">Level 3 Physics AME Workbook</div>
+		    <div class="book-author">Pauline Bendall</div>
+                    <div class="book-price">OMR 1.5</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book58.jpg" class="book-image" alt="National Science Olympiad">
+                <div class="book-info">
+                    <div class="book-title">National Science Olympiad</div>
+                    <div class="book-price">OMR 0.800</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book59.jpg" class="book-image" alt="Panic Plan for the SAT">
+                <div class="book-info">
+                    <div class="book-title">Panic Plan for the SAT</div>
+		    <div class="book-author">Joan Carris and Michael R. Crystal</div>
+                    <div class="book-price">OMR 2</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book60.jpg" class="book-image" alt="Question Papers for Class 8 for Olympiad and Talent Exams">
+                <div class="book-info">
+                    <div class="book-title">Question Papers for Class 8 for Olympiad and Talent Exams</div>
+                    <div class="book-price">OMR 0.800</div>
+                </div>
+            </div>
+
+	<div class="book-card">
+                <img src="images/book61.jpg" class="book-image" alt="Top University Guide">
+                <div class="book-info">
+                    <div class="book-title">Top University Guide</div>
+		    <div class="book-author">John O'Leary and others</div>
+                    <div class="book-price">OMR 0.500</div>
+                </div>
+            </div>
+
+
+   
+
+    </section>
+
+</div>
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about">
+    <div class="container">
+
+        <div class="about-content">
+
+            <!-- Your photo -->
+            <img src="images/me.jpeg"
+                 alt="Project Creator"
+                 class="profile-image">
+
+            <div class="about-text">
+                <h2>About This Project</h2>
+
+                <p>
+                    Hi, I'm an 18-year-old running a small personal fundraiser through the sale of second-hand books. While I'm not officially connected with the Indi Cancer Foundation, all proceeds from book sales will be donated to support their work.
+
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="foundation-logo-section">
+
+    <div class="logo-frame">
+
+        <img src="images/indi_logo.png" class="logo">
+    </div>
+
+</section>
+
+<footer>
+    Made with ♥ for a good cause.
+     <p>
+Dulara Kuruppu, 2026.
+<br>
+</footer>
+
+</body>
+</html>
